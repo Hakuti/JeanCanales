@@ -2,7 +2,7 @@
 
 ### Overview
 
-![alt text](assets/me.png)
+![alt text](assets/me.jpg)
 
 My current portfolio with some updates right now
 
