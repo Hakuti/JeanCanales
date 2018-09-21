@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Mutt Match</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+
+    <!-- JavaScript -->
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+    <!-- Firebase Link -->
+    <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+
+    <!--google fonts Link  -->
+    <link href="https://fonts.googleapis.com/css?family=Courgette|Fredoka+One|Kaushan+Script|Pacifico|Satisfy&amp;subset=cyrillic"
+        rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="style2.css" />
+
+
+</head>
+
+<body>
+
+    <body>
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1>Mutt Match</h1>
+                    <p>Welcoming a pet into your family is a big decision, but chances are good that your life will be better
+                        than ever. When you’re ready to welcome a dog into your home, use
+                        <strong> Mutt Match</strong> to find your new best friend.</p>
+                    <p>If your interested in more information about me click my picture. Don't forget to hit the like button!</p>
+                </div>
+            </div>
+
+            <div class="row" id="dogMobile">
+                    <div class="col-12 bg-danger">
+                        <img src="dog-icon.svg">
+                    </div>
+                </div>
+
+            <!-- flickity-->
+            <div class="row">
+                <div class="carousel" data-flickity='{"pageDots":false}' id="myCar">
+                </div>
+
+
+
+                <!-- <i id="likeButton" class="fas fa-heart"><span id="click-value"></span> Likes</i> -->
+
+
+
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container" id="modalCarouselContainer">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12" id="likeButtonDiv"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4" id="dogName"></div>
+                                    <div class="col-md-4" id="dogSex"></div>
+                                    <div class="col-md-4" id="dogAge"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12" id="dogDescription"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12"><strong>Grab some great stuff for your new companion!</strong></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4" id="ebayItem1"></div>
+                                    <div class="col-md-4" id="ebayItem2"></div>
+                                    <div class="col-md-4" id="ebayItem3"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="inner-cell">
+                    <button type="button" id="buttonAdopt" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
+                        <p>Adopt Me!</p>
+                        <img src="dog-approve.svg" id="approve">
+                    </button>
+                </div>
+
+
+            <nav class="navbar fixed-bottom navbar-light bg-transparent">
+                <a class="navbar-brand" href="#">
+                    <img src="Assets/images/Solon.png" width="100px" height="150px">
+                </a>
+                <div class="approveBtn" button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
+                    <p id="Adopt">
+                        <strong>Adopt Me!</strong>
+                    </p>
+                    <img src="Assets/images/dog-approve.svg">
+                    <id="approve">
+                        </button>
+                </div>
+            </nav>
+
+            <script src="landing.js"></script>
+            <script src="mutt.js"></script>
+            <!-- <script src="firebase.js"></script> -->
+    </body>
+
+</html>

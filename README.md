@@ -17,6 +17,3 @@ Feel free to contact me at can1927@gmail.com for anymore questions.
 **Enjoy!**
 
 # Hakuti.github.io
-# JeanCanales
-# JeanCanales
-# JeanCanales
